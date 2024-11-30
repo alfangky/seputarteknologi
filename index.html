@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seputar Teknologi</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="teknologi.jpg" type="image/png" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    rel="stylesheet"
+  />
     <style>
         /* CSS Reset and Base Styles */
         * {
@@ -418,6 +427,378 @@
                 padding-top: 50px;
             }
         }
+        .page-container {
+        flex-grow: 1;
+        padding: 0 15px;
+      }
+      .articles-container {
+        max-width: 1400px;
+        margin: 30px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+      }
+      .article-wrapper {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        border: 1px solid rgba(0,0,0,0.03);
+      }
+      .article-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, #1a2980, #26d0ce);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .article-wrapper:hover::before {
+        opacity: 1;
+      }
+      .article-wrapper:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+      .article-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      .article-wrapper:hover .article-image {
+        transform: scale(1.05);
+      }
+      .article-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        padding: 15px;
+        text-align: center;
+        background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+        transition: background 0.3s ease;
+      }
+      .article-wrapper:hover .article-title {
+        background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+      }
+      @media (max-width: 768px) {
+        .articles-container {
+          grid-template-columns: 1fr;
+          padding: 0 10px;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .article-title {
+          font-size: 16px;
+        }
+      }
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html, body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer {
+      background: #1f1e1d;
+      color: #e2e8f0;
+      padding: 4rem 1rem 2rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: auto; /* This pushes the footer to bottom */
+    }
+
+    /* Animated background gradient */
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #331010, #8a0808, #c01f0a);
+      animation: gradientMove 8s infinite linear;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      position: relative;
+    }
+
+    .footer-section {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .footer-section:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer h3 {
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+
+    .footer-section p {
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-info li:hover {
+      transform: translateX(8px);
+    }
+
+    .contact-icon-wrapper {
+      width: 36px;
+      height: 36px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info li:hover .contact-icon-wrapper {
+      background: rgba(255, 1, 1, 0.2);
+      transform: rotate(8deg);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      color: rgb(255, 255, 255);
+    }
+
+    .social-icon::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #3b0d0d, #793013);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    .social-icon:hover::before {
+      opacity: 1;
+    }
+
+    .social-icon svg {
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover svg {
+      transform: scale(1.1);
+      color: white;
+    }
+
+    .btn {
+      padding: 0.875rem 1.75rem;
+      background: linear-gradient(45deg, #6b2818, #850303);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(78, 22, 12, 0.3);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 0.875rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: #330d08;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .newsletter-btn {
+      padding: 0.875rem 1.5rem;
+      background: linear-gradient(45deg, #6b2818, #850303);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-btn:hover {
+      background: #cf3008;
+      transform: translateY(-2px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.8;
+      font-size: 0.875rem;
+    }
+
+    /* Floating drone animation */
+    .drone-icon {
+      position: absolute;
+      top: -30px;
+      right: 30px;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.1;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-btn {
+        width: 100%;
+      }
+
+      .drone-icon {
+        display: none;
+      }
+
+      .footer-section {
+        padding: 1.25rem;
+      }
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #6b2818, #850303);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+      background: linear-gradient(45deg, #6b2818, #850303);
+    }
     </style>
 </head>
 <body>
@@ -510,7 +891,145 @@
         </div>
     </div>
 </div>
-
+<div class="page-container">
+    <div class="articles-container">
+      <div
+        class="article-wrapper"
+        onclick="window.location.href='ai-article.html'"
+      >
+        <img
+          src="https://via.placeholder.com/350"
+          alt="The Future of Artificial Intelligence"
+          class="article-image"
+        />
+        <div class="article-title">The Future of Artificial Intelligence</div>
+      </div>
+      <div
+        class="article-wrapper"
+        onclick="window.location.href='quantum-article.html'"
+      >
+        <img
+          src="https://via.placeholder.com/350"
+          alt="Quantum Computing"
+          class="article-image"
+        />
+        <div class="article-title">Quantum Computing Revolution</div>
+      </div>
+      <div
+        class="article-wrapper"
+        onclick="window.location.href='cybersecurity-article.html'"
+      >
+        <img
+          src="https://via.placeholder.com/350"
+          alt="Cybersecurity"
+          class="article-image"
+        />
+        <div class="article-title">Cybersecurity in the Digital Age</div>
+      </div>
+      <div
+        class="article-wrapper"
+        onclick="window.location.href='5g-article.html'"
+      >
+        <img
+          src="https://via.placeholder.com/350"
+          alt="5G Technology"
+          class="article-image"
+        />
+        <div class="article-title">5G: Connecting the Future</div>
+      </div>
+      <div
+      class="article-wrapper"
+      onclick="window.location.href='ai-article.html'"
+    >
+      <img
+        src="https://via.placeholder.com/350"
+        alt="The Future of Artificial Intelligence"
+        class="article-image"
+      />
+      <div class="article-title">The Future of Artificial Intelligence</div>
+    </div>
+      <div
+        class="article-wrapper"
+        onclick="window.location.href='green-tech-article.html'"
+      >
+        <img
+          src="https://via.placeholder.com/350"
+          alt="Green Tech"
+          class="article-image"
+        />
+        <div class="article-title">Sustainable Technology Innovations</div>
+      </div>
+    </div>
+  </div>
+     <!-- Add content area to push footer down -->
+     <div style="flex: 1"></div>
+  
+     <footer class="footer">
+       <!-- Decorative drone icon -->
+       <svg class="drone-icon" width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
+         <path d="M12,2L14,6H10L12,2M12,22L10,18H14L12,22M6,12L2,10L6,8L8,10L6,12M18,12L22,10L18,8L16,10L18,12M12,12A2,2 0 0,0 10,10A2,2 0 0,0 8,12A2,2 0 0,0 10,14A2,2 0 0,0 12,12M14,10A2,2 0 0,1 16,12A2,2 0 0,1 14,14A2,2 0 0,1 12,12A2,2 0 0,1 14,10Z"/>
+       </svg>
+   
+       <div class="footer-content">
+         <div class="footer-section">
+           <h3>About Our Services</h3>
+           <p>Menyediakan berbagai artikel, informasi, dan komunitas Seputar Teknologi terbaru.</p>
+           <a href="https://www.instagram.com/seputarteknologi/?next=%2F" class="btn">Support social media kami</a>
+         </div>
+   
+         <div class="footer-section">
+           <h3>Contact Us</h3>
+           <ul class="contact-info">
+             <li>
+               <div class="contact-icon-wrapper">
+                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                   <polyline points="22,6 12,13 2,6"/>
+                 </svg>
+               </div>
+               seputarteknologi.official@gmail.com
+             </li>
+           </ul>
+         </div>
+   
+         <div class="footer-section">
+           <h3>Stay Updated</h3>
+           <p>Subscribe to our newsletter for the technology updates insights.</p>
+           <form class="newsletter-form" id="newsletterForm">
+             <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+             <button type="submit" class="newsletter-btn">Subscribe</button>
+           </form>
+           <div class="social-links">
+             <a href="#" class="social-icon">
+               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+               </svg>
+             </a>
+             <a href="https://www.instagram.com/seputarteknologi/?next=%2F" class="social-icon">
+               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+               </svg>
+           </a>
+           <a href="#" class="social-icon" data-tooltip="LinkedIn">
+             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+               <rect x="2" y="9" width="4" height="12"/>
+               <circle cx="4" cy="4" r="2"/>
+             </svg>
+           </a>
+         </div>
+       </div>
+     </div>
+   
+     <div class="copyright">
+       <p>&copy; 2024 Seputar Teknologi. All rights reserved.</p>
+     </div>
+   </footer>
+   
+   <!-- Toast notification container -->
+   <div class="toast" id="toast">Thanks for subscribing!</div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Burger Menu Toggle
@@ -567,6 +1086,109 @@
             }
         });
     });
+          // Smooth scroll behavior
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Enhanced social icon interactions
+  const socialIcons = document.querySelectorAll('.social-icon');
+  socialIcons.forEach(icon => {
+    icon.addEventListener('mouseover', function() {
+      this.style.transform = 'translateY(-5px) scale(1.1)';
+      // Create ripple effect
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 1000);
+    });
+    
+    icon.addEventListener('mouseout', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+
+  // Newsletter form submission with animation
+  const newsletterForm = document.getElementById('newsletterForm');
+  const toast = document.getElementById('toast');
+
+  newsletterForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input[type="email"]');
+    
+    // Animate button
+    const button = this.querySelector('button');
+    button.innerHTML = 'Subscribed!';
+    button.style.background = '#10b981';
+    
+    // Show toast notification
+    toast.classList.add('show');
+    
+    // Reset form after delay
+    setTimeout(() => {
+      button.innerHTML = 'Subscribe';
+      button.style.background = '#3b82f6';
+      toast.classList.remove('show');
+      email.value = '';
+    }, 3000);
+  });
+
+  // Contact info hover effect
+  const contactItems = document.querySelectorAll('.contact-info li');
+  contactItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      const icon = this.querySelector('.contact-icon-wrapper');
+      icon.style.transform = 'rotate(8deg) scale(1.1)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      const icon = this.querySelector('.contact-icon-wrapper');
+      icon.style.transform = 'rotate(0) scale(1)';
+    });
+  });
+
+  // Intersection Observer for fade-in animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.footer-section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    observer.observe(section);
+  });
+
+  // Add ripple effect to buttons
+  const buttons = document.querySelectorAll('.btn, .newsletter-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const ripple = document.createElement('span');
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      ripple.className = 'ripple';
+      
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
 </script>
 </body>
 </html>
